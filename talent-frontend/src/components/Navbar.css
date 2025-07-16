@@ -1,0 +1,40 @@
+.navbar {
+    width: 100vw;
+    height: 60px;
+    background: linear-gradient(90deg, #5b67f3 0%, #8695f7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-shadow: 0 2px 16px 0 rgba(91,103,243,0.10);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+.navbar-logout {
+    background: #fff;
+    color: #5b67f3;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #bfcaff22;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.navbar-logout:hover {
+    background: #e5e9ff;
+    color: #3a3f7d;
+    transform: translateY(-2px) scale(1.04);
+} 

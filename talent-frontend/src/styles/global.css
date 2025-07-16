@@ -1,0 +1,295 @@
+/* ========== 全局重置 ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;       /* 允许纵向滚动，只隐藏横向 */
+  font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',Arial,sans-serif;
+}
+
+/* ========== 首页布局（黄金分割 + 渐变） ========== */
+.homepage {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    to right,
+    #5b67f3 0%,
+    #5b67f3 61.8%,
+    #e5e9ff 63%,
+    #e5e9ff 100%
+  );
+}
+.homepage-left {
+  flex: 0 0 61.8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.homepage-right {
+  flex: 1;
+  position: relative;
+}
+.homepage-content {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  background: rgba(255,255,255,0.18);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31,38,135,0.18);
+  backdrop-filter: blur(6px);
+  color: #fff;
+}
+.homepage-content h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.homepage-content p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #e5e9ff;
+}
+.homepage-content button {
+  padding: 0.75rem 2.25rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #5b67f3;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(91,103,243,0.08);
+  transition: transform 0.2s, background 0.3s;
+}
+.homepage-content button:hover {
+  background: #f0f4ff;
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* ========== 登录弹窗（首页） ========== */
+/* 改为只覆盖右侧 .homepage-right 区域 */
+.homepage-right .modal-backdrop {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  /* 保持原来的弹窗样式 */
+  .homepage-right .modal {
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    max-width: 360px;
+    width: 90%;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  }
+  .homepage-right .modal h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  .homepage-right .modal form {
+    display: flex;
+    flex-direction: column;
+  }
+  .homepage-right .modal input {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  .homepage-right .modal .error {
+    color: #d9534f;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+  .homepage-right .modal button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background: #5b67f3;
+    color: #fff;
+    cursor: pointer;
+  }
+  .homepage-right .modal button:hover {
+    background: #3a3f7d;
+  }
+
+/* ========== 候选人页面布局 ========== */
+.candidate-bg {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(120deg,#f7faff 0%,#e5e9ff 100%);
+    padding: 1.5rem 0;
+    overflow-x: hidden;
+  }
+  
+  /* 主体区：筛选 + 卡片 + 分页 */
+  .candidate-main {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 2rem; /* 给分页按钮留空 */
+  }
+  
+  /* 筛选栏 */
+  .candidate-filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .candidate-filter-bar select {
+    flex: 1;
+    max-width: 200px;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  /* 卡片网格：固定 5 列 */
+  .candidate-cards {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 1rem;
+  }
+  .candidate-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform .2s,box-shadow .2s;
+  }
+  .candidate-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  .candidate-card h3 {
+    margin: 0 0 .4rem;
+    font-size: 1.25rem;
+    color: #333;
+  }
+  .candidate-card p {
+    margin: 0;
+    color: #666;
+    font-size: .95rem;
+  }
+  
+  /* 分页按钮 */
+  .candidate-main > div:last-child {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .candidate-main button {
+    padding: .6rem 1.2rem;
+    margin: 0 .5rem;
+    border: none;
+    border-radius: 6px;
+    background: #5b67f3;
+    color: #fff;
+    cursor: pointer;
+  }
+  .candidate-main button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  .candidate-main button:not(:disabled):hover {
+    background: #3a3f7d;
+  }
+  
+  /* ===== 详情模态框改为居中弹窗 ===== */
+.candidate-detail-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.8);
+    width: 80%;
+    max-width: 800px;
+    max-height: 80%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    padding: 2rem;
+    overflow-y: auto;
+    opacity: 0;
+    transition: transform .3s ease, opacity .3s ease;
+    z-index: 1001;
+  }
+  .candidate-detail-panel.open {
+    transform: translate(-50%,-50%) scale(1);
+    opacity: 1;
+  }
+  .candidate-detail-panel .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  .candidate-detail-panel h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #333;
+  }
+  .candidate-detail-panel p {
+    margin: .8rem 0;
+    color: #444;
+    line-height: 1.6;
+  }
+  .candidate-detail-panel a.download-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: .8rem 1.6rem;
+    background: linear-gradient(90deg,#5b67f3 60%,#8695f7 100%);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .candidate-detail-panel a.download-btn:hover {
+    background: #3a3f7d;
+  }
+  
+  /* 响应式：<1200→4 列，<992→3 列，<768→2 列 + 全屏模态 */
+  @media (max-width: 1200px) {
+    .candidate-cards { grid-template-columns: repeat(4,1fr); }
+  }
+  @media (max-width: 992px) {
+    .candidate-cards { grid-template-columns: repeat(3,1fr); }
+  }
+  @media (max-width: 768px) {
+    .candidate-cards { grid-template-columns: repeat(2,1fr); }
+    .candidate-detail-panel {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      max-height: none;
+      border-radius: 0;
+      top: 0; left: 0;
+      transform: translate(0,0) scale(1);
+    }
+  }
