@@ -11,4 +11,4 @@ class CandidateViewSet(viewsets.ModelViewSet):
     serializer_class = CandidateSerializer
     pagination_class = CustomPagination
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('major', 'gender')
+    filterset_fields = ('major', 'gender', 'degree', 'base', 'quality_score')

@@ -2,207 +2,254 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
 html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;       /* 允许纵向滚动，只隐藏横向 */
-  font-family: 'Segoe UI','PingFang SC','Microsoft YaHei',Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* 允许纵向滚动，只隐藏横向 */
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
 }
 
 /* ========== 首页布局（黄金分割 + 渐变） ========== */
 .homepage {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(
-    to right,
-    #5b67f3 0%,
-    #5b67f3 61.8%,
-    #e5e9ff 63%,
-    #e5e9ff 100%
-  );
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+            to right,
+            #5b67f3 0%,
+            #5b67f3 61.8%,
+            #e5e9ff 63%,
+            #e5e9ff 100%
+    );
 }
+
 .homepage-left {
-  flex: 0 0 61.8%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
+    flex: 0 0 61.8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
+
 .homepage-right {
-  flex: 1;
-  position: relative;
+    flex: 1;
+    position: relative;
 }
+
 .homepage-content {
-  width: 100%;
-  max-width: 500px;
-  padding: 2rem;
-  background: rgba(255,255,255,0.18);
-  border: 1.5px solid rgba(255,255,255,0.22);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(31,38,135,0.18);
-  backdrop-filter: blur(6px);
-  color: #fff;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
+    backdrop-filter: blur(6px);
+    color: #fff;
 }
+
 .homepage-content h1 {
-  font-size: 2.6rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
+
 .homepage-content p {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: #e5e9ff;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #e5e9ff;
 }
+
 .homepage-content button {
-  padding: 0.75rem 2.25rem;
-  font-size: 1.0625rem;
-  font-weight: 600;
-  color: #5b67f3;
-  background: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(91,103,243,0.08);
-  transition: transform 0.2s, background 0.3s;
+    padding: 0.75rem 2.25rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #5b67f3;
+    background: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(91, 103, 243, 0.08);
+    transition: transform 0.2s, background 0.3s;
 }
+
 .homepage-content button:hover {
-  background: #f0f4ff;
-  transform: translateY(-2px) scale(1.04);
+    background: #f0f4ff;
+    transform: translateY(-2px) scale(1.04);
 }
 
 /* ========== 登录弹窗（首页） ========== */
 /* 改为只覆盖右侧 .homepage-right 区域 */
 .homepage-right .modal-backdrop {
     position: absolute;
-    top: 0; 
-    left: 0; 
-    right: 0; 
+    top: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 10;
-  }
-  /* 保持原来的弹窗样式 */
-  .homepage-right .modal {
+}
+
+/* 保持原来的弹窗样式 */
+.homepage-right .modal {
     position: relative;
     background: #fff;
     border-radius: 8px;
     max-width: 360px;
     width: 90%;
     padding: 2rem;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.15);
-  }
-  .homepage-right .modal h2 {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.homepage-right .modal h2 {
     margin-bottom: 1rem;
     font-size: 1.5rem;
     color: #333;
-  }
-  .homepage-right .modal form {
+}
+
+.homepage-right .modal form {
     display: flex;
     flex-direction: column;
-  }
-  .homepage-right .modal input {
+}
+
+.homepage-right .modal input {
     margin-bottom: 1rem;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 6px;
-  }
-  .homepage-right .modal .error {
+}
+
+.homepage-right .modal .error {
     color: #d9534f;
     margin-bottom: 1rem;
     font-size: 0.9rem;
-  }
-  .homepage-right .modal button {
+}
+
+.homepage-right .modal button {
     padding: 0.75rem;
     border: none;
     border-radius: 6px;
     background: #5b67f3;
     color: #fff;
     cursor: pointer;
-  }
-  .homepage-right .modal button:hover {
+}
+
+.homepage-right .modal button:hover {
     background: #3a3f7d;
-  }
+}
 
 /* ========== 候选人页面布局 ========== */
 .candidate-bg {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(120deg,#f7faff 0%,#e5e9ff 100%);
+    background: linear-gradient(120deg, #f7faff 0%, #e5e9ff 100%);
     padding: 1.5rem 0;
     overflow-x: hidden;
-  }
-  
-  /* 主体区：筛选 + 卡片 + 分页 */
-  .candidate-main {
+}
+
+/* 主体区：筛选 + 卡片 + 分页 */
+.candidate-main {
     width: 90%;
     max-width: 1400px;
     margin: 0 auto;
     padding-bottom: 2rem; /* 给分页按钮留空 */
-  }
-  
-  /* 筛选栏 */
-  .candidate-filter-bar {
+}
+
+/* 筛选栏 */
+.candidate-filter-bar {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .candidate-filter-bar select {
-    flex: 1;
-    max-width: 200px;
-    padding: 0.6rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background: #fff;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding: 0 4px;
+}
+
+/* 通用下拉框美化 */
+.candidate-filter-bar select {
+    appearance: none;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg fill='gray' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px 16px;
+
+    border: 1px solid #d0d0d0;
+    border-radius: 10px;
+    padding: 12px 44px 12px 16px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    width: 260px; /* 👈 统一宽度 */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
     cursor: pointer;
-  }
-  
-  /* 卡片网格：固定 5 列 */
-  .candidate-cards {
+}
+
+/* 鼠标悬浮/选中状态 */
+.candidate-filter-bar select:hover,
+.candidate-filter-bar select:focus {
+    border-color: #7e79e9;
+    box-shadow: 0 0 0 3px rgba(126, 121, 233, 0.15);
+    outline: none;
+}
+
+/* option 配置 */
+.candidate-filter-bar option {
+    font-size: 15px;
+}
+
+/* 卡片网格：固定 5 列 */
+.candidate-cards {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
-  }
-  .candidate-card {
+}
+
+.candidate-card {
     background: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     padding: 1.2rem;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: transform .2s,box-shadow .2s;
-  }
-  .candidate-card:hover {
+    transition: transform .2s, box-shadow .2s;
+}
+
+.candidate-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-  }
-  .candidate-card h3 {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-card h3 {
     margin: 0 0 .4rem;
     font-size: 1.25rem;
     color: #333;
-  }
-  .candidate-card p {
+}
+
+.candidate-card p {
     margin: 0;
     color: #666;
     font-size: .95rem;
-  }
-  
-  /* 分页按钮 */
-  .candidate-main > div:last-child {
+}
+
+/* 分页按钮 */
+.candidate-main > div:last-child {
     text-align: center;
     margin-top: 2rem;
-  }
-  .candidate-main button {
+}
+
+.candidate-main button {
     padding: .6rem 1.2rem;
     margin: 0 .5rem;
     border: none;
@@ -210,38 +257,42 @@ html, body {
     background: #5b67f3;
     color: #fff;
     cursor: pointer;
-  }
-  .candidate-main button:disabled {
+}
+
+.candidate-main button:disabled {
     background: #ccc;
     cursor: not-allowed;
-  }
-  .candidate-main button:not(:disabled):hover {
+}
+
+.candidate-main button:not(:disabled):hover {
     background: #3a3f7d;
-  }
-  
-  /* ===== 详情模态框改为居中弹窗 ===== */
+}
+
+/* ===== 详情模态框改为居中弹窗 ===== */
 .candidate-detail-panel {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.8);
     width: 80%;
     max-width: 800px;
     max-height: 80%;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     padding: 2rem;
     overflow-y: auto;
     opacity: 0;
     transition: transform .3s ease, opacity .3s ease;
     z-index: 1001;
-  }
-  .candidate-detail-panel.open {
-    transform: translate(-50%,-50%) scale(1);
+}
+
+.candidate-detail-panel.open {
+    transform: translate(-50%, -50%) scale(1);
     opacity: 1;
-  }
-  .candidate-detail-panel .close-btn {
+}
+
+.candidate-detail-panel .close-btn {
     position: absolute;
     top: 1rem;
     right: 1rem;
@@ -249,47 +300,147 @@ html, body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-  }
-  .candidate-detail-panel h2 {
+}
+
+.candidate-detail-panel h2 {
     margin-top: 0;
     font-size: 2rem;
     color: #333;
-  }
-  .candidate-detail-panel p {
+}
+
+.candidate-detail-panel p {
     margin: .8rem 0;
     color: #444;
     line-height: 1.6;
-  }
-  .candidate-detail-panel a.download-btn {
+}
+
+.candidate-detail-panel a.download-btn {
     display: inline-block;
     margin-top: 1.5rem;
     padding: .8rem 1.6rem;
-    background: linear-gradient(90deg,#5b67f3 60%,#8695f7 100%);
+    background: linear-gradient(90deg, #5b67f3 60%, #8695f7 100%);
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
     transition: background .2s;
-  }
-  .candidate-detail-panel a.download-btn:hover {
+}
+
+.candidate-detail-panel a.download-btn:hover {
     background: #3a3f7d;
-  }
-  
-  /* 响应式：<1200→4 列，<992→3 列，<768→2 列 + 全屏模态 */
-  @media (max-width: 1200px) {
-    .candidate-cards { grid-template-columns: repeat(4,1fr); }
-  }
-  @media (max-width: 992px) {
-    .candidate-cards { grid-template-columns: repeat(3,1fr); }
-  }
-  @media (max-width: 768px) {
-    .candidate-cards { grid-template-columns: repeat(2,1fr); }
-    .candidate-detail-panel {
-      width: 100%;
-      max-width: none;
-      height: 100%;
-      max-height: none;
-      border-radius: 0;
-      top: 0; left: 0;
-      transform: translate(0,0) scale(1);
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+
+/* 主按钮 */
+.download-btn {
+    background-color: #5b67f3;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.download-btn:hover {
+    background-color: #4048c5;
+}
+
+/* 次按钮 */
+.action-btn {
+    padding: 7px 14px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.action-btn:hover {
+    border-color: #888;
+    background-color: #f8f8f8;
+}
+
+/* 评分弹窗 */
+.score-modal {
+    position: fixed;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    width: 240px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 1202;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 评分按钮 */
+.score-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.score-btn:hover {
+    transform: scale(1.1);
+}
+
+.score-btn.selected {
+    outline: 3px solid #444;
+}
+
+/* 弹窗遮罩（可选优化） */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25); /* 柔和遮罩 */
+    z-index: 1000;
+}
+
+
+/* 响应式：<1200→4 列，<992→3 列，<768→2 列 + 全屏模态 */
+@media (max-width: 1200px) {
+    .candidate-cards {
+        grid-template-columns: repeat(4, 1fr);
     }
-  }
+}
+
+@media (max-width: 992px) {
+    .candidate-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .candidate-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .candidate-detail-panel {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        top: 0;
+        left: 0;
+        transform: translate(0, 0) scale(1);
+    }
+}

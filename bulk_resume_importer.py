@@ -34,18 +34,28 @@ for folder in [UNQUALIFIED_FOLDER, PASSED_FOLDER]:
 def call_qwen(text):
     prompt = f"""
 你是一个简历分析助手，请从下面简历中提取以下字段，返回标准 JSON（字段名使用英文）：
+
 - name
 - gender
+- age
 - phone
 - email
-- degree
-- university
 - major
+- degree
+- graduation_date （格式为 YYYY-MM-DD）
+- bachelor_university
+- master_university
+- phd_university
 - experience_1
+- experience_1_time
 - experience_2
+- experience_2_time
 - experience_3
+- experience_3_time
+- base
+- quality_score （请对简历质量打分，1 到 5 分，请精准打分）
 
-请以纯 JSON 格式输出，不要加任何解释说明。不要包裹 markdown 代码块。
+请以纯 JSON 格式输出，不要加任何解释说明，不要 markdown 代码块。
 
 简历如下：
 {text}
@@ -103,15 +113,28 @@ def process_all_resumes():
                 candidate = Candidate(
                     name=result.get("name", ""),
                     gender=result.get("gender", ""),
+                    age=result.get("age", None),
                     phone=result.get("phone", ""),
                     email=result.get("email", ""),
-                    degree=result.get("degree", ""),
-                    university=result.get("university", ""),
                     major=result.get("major", ""),
+                    degree=result.get("degree", ""),
+                    graduation_date=result.get("graduation_date", None),
+
+                    bachelor_university=result.get("bachelor_university", ""),
+                    master_university=result.get("master_university", ""),
+                    phd_university=result.get("phd_university", ""),
+
                     experience_1=result.get("experience_1", ""),
+                    experience_1_time=result.get("experience_1_time", ""),
                     experience_2=result.get("experience_2", ""),
-                    experience_3=result.get("experience_3", "")
+                    experience_2_time=result.get("experience_2_time", ""),
+                    experience_3=result.get("experience_3", ""),
+                    experience_3_time=result.get("experience_3_time", ""),
+
+                    base=result.get("base", ""),
+                    quality_score=result.get("quality_score", None)
                 )
+
                 candidate.resume_pdf.save(filename, django_file, save=True)
 
             print(f"✅ [{idx}/{total}] 成功导入：{filename}")
